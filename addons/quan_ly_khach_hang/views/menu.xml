@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_root"
+            name="QLKH"
+            sequence="0"/>
+          
+        <menuitem name="Thông tin khách hàng"
+            id="menu_thong_tin_khach_hang"
+            parent="menu_root" 
+            sequence="1"
+            action="action_thong_tin_khach_hang"
+        />
+         <menuitem name="Đơn hàng khách hàng"
+            id="menu_don_hang_khach_hang"
+            parent="menu_root"
+            sequence="1"
+            action="action_don_hang_khach_hang"
+        />
+    </data>
+</odoo>
