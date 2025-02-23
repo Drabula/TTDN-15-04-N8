@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_thong_tin_khach_hang_form" model="ir.ui.view">
+            <field name="name">thong_tin_khach_hang</field>
+            <field name="model">thong_tin_khach_hang</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Thông Tin Khách Hàng</div>
+                        <group col="4" string="Thông tin chung">
+                            <field name="ten_khach_hang"/>
+                            <field name="dia_chi"/>
+                            <field name="so_dien_thoai"/>
+                            <field name="email"/>
+                            <field name="cong_ty"/>
+                            <field name="chuc_vu"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_thong_tin_khach_hang_tree" model="ir.ui.view">
+            <field name="name">thong_tin_khach_hang</field>
+            <field name="model">thong_tin_khach_hang</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ten_khach_hang"/>
+                    <field name="so_dien_thoai"/>
+                    <field name="email"/>
+                    <field name="cong_ty"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="thong_tin_khach_hang_search">
+            <field name="model">thong_tin_khach_hang</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ten_khach_hang"/>
+                    <field name="so_dien_thoai"/>
+                    <field name="email"/>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_thong_tin_khach_hang" model="ir.actions.act_window">
+            <field name="name">Thông Tin Khách Hàng</field>
+            <field name="res_model">thong_tin_khach_hang</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="thong_tin_khach_hang_search"/>
+        </record>
+    </data>
+</odoo>

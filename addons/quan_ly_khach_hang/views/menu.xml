@@ -3,34 +3,20 @@
     <data>
         <menuitem
             id="menu_root"
-            name="QLNS"
+            name="QLKH"
             sequence="0"/>
           
-        <menuitem name="Quản lý nhân viên" 
-            id="menu_nhan_vien" 
+        <menuitem name="Thông tin khách hàng"
+            id="menu_thong_tin_khach_hang"
             parent="menu_root" 
             sequence="1"
-            action="action_nhan_vien"
+            action="action_thong_tin_khach_hang"
         />
-
-        <menuitem name="Quản lý phòng ban" 
-            id="menu_phong_ban" 
-            parent="menu_root" 
+         <menuitem name="Đơn hàng khách hàng"
+            id="menu_don_hang_khach_hang"
+            parent="menu_root"
             sequence="1"
-            action="action_phong_ban"
-        />
-         <menuitem name="Quản lý chức vụ" 
-            id="menu_chuc_vu" 
-            parent="menu_root" 
-            sequence="1"
-            action="action_chuc_vu"
-        /><menuitem name="Lịch sử công tác" 
-            id="menu_lich_su_cong_tac" 
-            parent="menu_root" 
-            sequence="1"
-            action="action_lich_su_cong_tac"
+            action="action_don_hang_khach_hang"
         />
     </data>
-
-    
 </odoo>
