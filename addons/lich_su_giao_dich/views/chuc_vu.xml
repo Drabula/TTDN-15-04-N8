@@ -7,8 +7,8 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <div class="oe_read_only" style="font-size:25px">Chức Vụ</div>
-                        <group col="6" string="Thông tin chung">
+                        <div class="oe_read_only" style="font-size:25px">Thông tin chức vụ</div>
+                        <group col="4" string="Thông tin chung">
                             <field name="ma_chuc_vu"/>
                             <field name="ten_chuc_vu"/>
                         </group>
@@ -17,8 +17,9 @@
             </field>
         </record>
 
+        <!-- View Tree cho chức vụ-->
         <record id="view_chuc_vu_tree" model="ir.ui.view">
-            <field name="name">chuc_vu</field>
+            <field name="name">chuc_vu_tree_view</field>
             <field name="model">chuc_vu</field>
             <field name="arch" type="xml">
                 <tree>
@@ -28,6 +29,7 @@
             </field>
         </record>
 
+        <!-- Search View cho chức vụ-->
         <record model="ir.ui.view" id="chuc_vu_search">
             <field name="model">chuc_vu</field>
             <field name="arch" type="xml">
@@ -38,11 +40,12 @@
             </field>
         </record>
 
+        <!-- Action cho chức vụ-->
         <record id="action_chuc_vu" model="ir.actions.act_window">
-            <field name="name">Chức Vụ</field>
+            <field name="name">Phòng Ban</field>
             <field name="res_model">chuc_vu</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref = "chuc_vu_search"/>
+            <field name="search_view_id" ref="chuc_vu_search"/>
         </record>
     </data>
 </odoo>

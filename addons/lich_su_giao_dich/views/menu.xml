@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem
+            id="menu_root"
+            name="QLNS"
+            sequence="0"/>
+        <menuitem name="Quản lý nhân viên"
+            id="menu_nhan_vien"
+            parent="menu_root"
+            sequence="1"
+            action="action_nhan_vien"
+        />
+        <menuitem name="Quản lý phòng ban"
+            id="menu_phong_ban"
+            parent="menu_root"
+            sequence="2"
+            action="action_phong_ban"
+        />
+
+        <menuitem name="Quản lý Chức vụ"
+            id="menu_chuc_vu"
+            parent="menu_root"
+            sequence="3"
+            action="action_chuc_vu"
+        />
+
+        <menuitem name="Quản lý Lịch Sử"
+            id="menu_lich_su"
+            parent="menu_root"
+            sequence="4"
+            action="action_lich_su"
+        />
+        <menuitem name="Lịch sử giao dịch"
+            id="menu_lich_su_giao_dich"
+            parent="menu_root"
+            sequence="5"
+            action="action_lich_su_giao_dich"
+        />
+        <menuitem name="Hỗ trợ khách hàng"
+            id="menu_ho_tro_khach_hang"
+            parent="menu_root"
+            sequence="6"
+            action="action_ho_tro_khach_hang"
+        />
+    </data>
+
+    
+</odoo>

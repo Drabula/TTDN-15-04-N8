@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "quan_ly_van_ban",
+    'name': "nhan_su",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
         subtitle on modules listing or apps.openerp.com""",
 
     'description': """
-        Quản lý văn bản
+        Long description of module's purpose
     """,
 
-    'author': "minhvu",
+    'author': "My Company",
     'website': "http://www.yourcompany.com",
 
     # Categories can be used to filter modules in modules listing
@@ -25,7 +25,12 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/van_ban_di.xml',
+        'views/lich_su_giao_dich.xml',
+        'views/ho_tro_khach_hang.xml',
+        'views/chuc_vu.xml',
+        'views/nhan_vien.xml',
+        'views/phong_ban.xml',
+        'views/lich_su.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

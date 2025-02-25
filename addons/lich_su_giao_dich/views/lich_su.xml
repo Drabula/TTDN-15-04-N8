@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- View Form cho lịch sử công tác -->
+        <record id="view_lich_su_form" model="ir.ui.view">
+            <field name="name">lich_su</field>
+            <field name="model">lich_su</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="employee_id" required="1"/>
+                            <field name="department_id" required="1"/>
+                            <field name="job_title" required="1"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="is_current"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- View Tree cho lịch sử công tác -->
+        <record id="view_lich_su_tree" model="ir.ui.view">
+            <field name="name">lich_su_tree</field>
+            <field name="model">lich_su</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="employee_id"/>
+                    <field name="department_id"/>
+                    <field name="job_title"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="is_current"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Search View với SearchPanel -->
+        <record id="view_lich_su_search" model="ir.ui.view">
+            <field name="name">lich_su_search</field>
+            <field name="model">lich_su</field>
+            <field name="arch" type="xml">
+                <search>
+                    <searchpanel>
+                        <field name="employee_id" string="Nhân viên"/>
+                        <field name="department_id" string="Phòng ban"/>
+                        <field name="job_title" string="Chức vụ"/>
+                    </searchpanel>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- Action để mở lịch sử công tác từ menu -->
+        <record id="action_lich_su" model="ir.actions.act_window">
+            <field name="name">Lịch sử công tác</field>
+            <field name="res_model">lich_su</field>
+            <field name="view_mode">tree,form</field>
+            <field name="search_view_id" ref="view_lich_su_search"/>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_lich_su" name="Lịch sử công tác" action="action_lich_su"/>
+    </data>
+</odoo>
