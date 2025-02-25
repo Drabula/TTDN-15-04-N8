@@ -1,5 +1,5 @@
 [options]
-addons_path = addons
+addons_path = /Users/sonchubeo/Documents/TTDN-15-04-N8/addons
 db_host = localhost
 db_password = odoo
 db_user = odoo
