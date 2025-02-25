@@ -18,5 +18,12 @@
             sequence="1"
             action="action_don_hang_khach_hang"
         />
+        <menuitem name="Chi tiết đơn hàng"
+          id="menu_chi_tiet_don_hang"
+          parent="menu_root"
+          sequence="2"
+          action="action_order_detail"
+        />
+
     </data>
 </odoo>
