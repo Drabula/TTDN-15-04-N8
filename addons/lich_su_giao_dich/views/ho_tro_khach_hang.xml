@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_ho_tro_khach_hang_form" model="ir.ui.view">
+        <field name="name">ho.tro.khach.hang.form</field>
+        <field name="model">ho_tro_khach_hang</field>
+        <field name="arch" type="xml">
+            <form string="Hỗ Trợ Khách Hàng">
+                <sheet>
+                    <group>
+                        <field name="ten_khach_hang"/>
+                        <field name="phuong_thuc_lien_lac"/>
+                        <field name="ngay_ho_tro"/>
+                        <field name="trang_thai"/>
+                        <field name="nhan_vien_phu_trach"/>
+                        <field name="mo_ta_chi_tiet"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ho_tro_khach_hang_tree" model="ir.ui.view">
+        <field name="name">ho.tro.khach.hang.tree</field>
+        <field name="model">ho_tro_khach_hang</field>
+        <field name="arch" type="xml">
+            <tree string="Hỗ Trợ Khách Hàng">
+                <field name="ten_khach_hang"/>
+                <field name="phuong_thuc_lien_lac"/>
+                <field name="ngay_ho_tro"/>
+                <field name="trang_thai"/>
+                <field name="nhan_vien_phu_trach"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_ho_tro_khach_hang" model="ir.actions.act_window">
+        <field name="name">Hỗ Trợ Khách Hàng</field>
+        <field name="res_model">ho_tro_khach_hang</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" action="action_ho_tro_khach_hang"/>
+
+</odoo>
