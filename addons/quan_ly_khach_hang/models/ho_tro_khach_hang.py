@@ -5,7 +5,9 @@ class HoTroKhachHang(models.Model):
     _name = 'ho_tro_khach_hang'
     _description = 'Hỗ trợ khách hàng'
 
-    ten_khach_hang = fields.Char("Tên khách hàng", required=True)
+    ten_khach_hang = fields.Many2one(
+        'thong_tin_khach_hang', string="Khách hàng", required=True
+    )
 
     phuong_thuc_lien_lac = fields.Selection([
         ('call', 'Gọi điện'),
@@ -24,4 +26,6 @@ class HoTroKhachHang(models.Model):
         ('resolved', 'Đã giải quyết')
     ], string="Trạng thái", default='pending')
 
-    nhan_vien_phu_trach = fields.Char("Nhân viên phụ trách")
+    nhan_vien_phu_trach = fields.Many2one(
+        'nhan_vien', string="Nhân viên phụ trách", required=True
+    )

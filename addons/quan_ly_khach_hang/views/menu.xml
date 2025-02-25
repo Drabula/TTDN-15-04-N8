@@ -1,66 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <menuitem
-            id="menu_root"
-            name="QLKH"
-            sequence="0"/>
-          
-        <menuitem name="Thông tin khách hàng"
-            id="menu_thong_tin_khach_hang"
-            parent="menu_root" 
-            sequence="1"
-            action="action_thong_tin_khach_hang"
-        />
-         <menuitem name="Đơn hàng khách hàng"
-            id="menu_don_hang_khach_hang"
-            parent="menu_root"
-            sequence="1"
-            action="action_don_hang_khach_hang"
-        />
-        <menuitem name="Quản lý nhân viên"
-            id="menu_nhan_vien"
-            parent="menu_root"
-            sequence="1"
-            action="action_nhan_vien"
-        />
-        <menuitem name="Quản lý phòng ban"
-            id="menu_phong_ban"
-            parent="menu_root"
-            sequence="2"
-            action="action_phong_ban"
-        />
+        <!-- Menu chính -->
+        <menuitem id="menu_root" name="QLKH" sequence="0"/>
 
-        <menuitem name="Quản lý Chức vụ"
-            id="menu_chuc_vu"
-            parent="menu_root"
-            sequence="3"
-            action="action_chuc_vu"
-        />
+        <!-- Dropdown Khách hàng -->
+        <menuitem id="menu_khach_hang_group" name="Khách hàng" parent="menu_root" sequence="1"/>
+        <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_khach_hang_group" action="action_thong_tin_khach_hang"/>
+        <menuitem id="menu_don_hang_khach_hang" name="Đơn hàng khách hàng" parent="menu_khach_hang_group" action="action_don_hang_khach_hang"/>
+        <menuitem id="menu_lich_su_giao_dich" name="Lịch sử giao dịch" parent="menu_khach_hang_group" action="action_lich_su_giao_dich"/>
+        <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_khach_hang_group" action="action_ho_tro_khach_hang"/>
 
-        <menuitem name="Quản lý Lịch Sử"
-            id="menu_lich_su"
-            parent="menu_root"
-            sequence="4"
-            action="action_lich_su"
-        />
-        <menuitem name="Lịch sử giao dịch"
-            id="menu_lich_su_giao_dich"
-            parent="menu_root"
-            sequence="5"
-            action="action_lich_su_giao_dich"
-        />
-        <menuitem name="Hỗ trợ khách hàng"
-            id="menu_ho_tro_khach_hang"
-            parent="menu_root"
-            sequence="6"
-            action="action_ho_tro_khach_hang"
-        />
-        <menuitem name="Chi tiết đơn hàng"
-          id="menu_chi_tiet_don_hang"
-          parent="menu_root"
-          sequence="7"
-          action="action_order_detail"
-        />
+        <!-- Dropdown Nhân sự -->
+        <menuitem id="menu_nhan_su_group" name="Nhân sự" parent="menu_root" sequence="2"/>
+        <menuitem id="menu_nhan_vien" name="Quản lý nhân viên" parent="menu_nhan_su_group" action="action_nhan_vien"/>
+        <menuitem id="menu_phong_ban" name="Quản lý phòng ban" parent="menu_nhan_su_group" action="action_phong_ban"/>
+        <menuitem id="menu_chuc_vu" name="Quản lý Chức vụ" parent="menu_nhan_su_group" action="action_chuc_vu"/>
+        <menuitem id="menu_lich_su" name="Quản lý Lịch sử" parent="menu_nhan_su_group" action="action_lich_su"/>
+
+        <!-- Dropdown Đơn hàng -->
+        <menuitem id="menu_don_hang_group" name="Đơn hàng" parent="menu_root" sequence="3"/>
+        <menuitem id="menu_chi_tiet_don_hang" name="Chi tiết đơn hàng" parent="menu_don_hang_group" action="action_order_detail"/>
+
     </data>
 </odoo>

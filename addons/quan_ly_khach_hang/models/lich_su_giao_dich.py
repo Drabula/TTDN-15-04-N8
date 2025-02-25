@@ -4,7 +4,7 @@ class LichSuGiaoDich(models.Model):
     _name = 'lich_su_giao_dich'
     _description = 'Lịch sử giao dịch khách hàng'
 
-    ten_khach_hang = fields.Char("Mã chức vụ", required=True)
+    ten_khach_hang = fields.Many2one('thong_tin_khach_hang',string='Mã chức vụ', required=True)
 
     phuong_thuc_lien_lac = fields.Selection([
         ('call', 'Gọi điện'),
