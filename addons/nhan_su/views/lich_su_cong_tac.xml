@@ -12,7 +12,7 @@
                         <group col="4" string="Thông tin chung">
                             <field name="nhan_vien_id"/>
                             <field name="phong_ban_id"/>                   
-                            <field name="chuc_vu"/>
+                            <field name="chuc_vu_id"/>
                         </group>
                     </sheet>
                 </form>
@@ -27,7 +27,7 @@
                 <tree>
                     <field name="nhan_vien_id"/>
                     <field name="phong_ban_id"/>
-                    <field name="chuc_vu"/>
+                    <field name="chuc_vu_id"/>
                 </tree>
             </field>
         </record>
