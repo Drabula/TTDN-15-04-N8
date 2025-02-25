@@ -28,6 +28,12 @@
         'data/ir_sequence.xml',
         'views/don_hang_khach_hang.xml',
         'views/thong_tin_khach_hang.xml',
+        'views/lich_su_giao_dich.xml',
+        'views/ho_tro_khach_hang.xml',
+        'views/chuc_vu.xml',
+        'views/nhan_vien.xml',
+        'views/phong_ban.xml',
+        'views/lich_su.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
