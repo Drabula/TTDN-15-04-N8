@@ -8,4 +8,4 @@ class PhongBan(models.Model):
     ma_phong_ban = fields.Char("Mã phòng ban", required=True)
     ten_phong_ban = fields.Char("Tên phòng ban", required=True)
     
-    nhan_vien_ids = fields.One2many("nhan_vien", "phong_ban_id", string="Danh sách nhân viên")
+    nhan_vien_id = fields.One2many("nhan_vien", "phong_ban_id", string="Danh sách nhân viên")
