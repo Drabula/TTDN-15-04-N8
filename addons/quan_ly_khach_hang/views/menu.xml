@@ -15,7 +15,7 @@
          <menuitem name="Đơn hàng khách hàng"
             id="menu_don_hang_khach_hang"
             parent="menu_root"
-            sequence="1"
+            sequence="2"
             action="action_don_hang_khach_hang"
         />
     </data>

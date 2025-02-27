@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record id="view_thong_tin_khach_hang_form" model="ir.ui.view">
-            <field name="name">thong_tin_khach_hang</field>
+            <field name="name">thong_tin_khach_hang_form</field>
             <field name="model">thong_tin_khach_hang</field>
             <field name="arch" type="xml">
                 <form>
@@ -15,6 +15,7 @@
                             <field name="email"/>
                             <field name="cong_ty"/>
                             <field name="chuc_vu"/>
+                            <field name="phan_loai"/>
                         </group>
                     </sheet>
                 </form>
@@ -22,7 +23,7 @@
         </record>
 
         <record id="view_thong_tin_khach_hang_tree" model="ir.ui.view">
-            <field name="name">thong_tin_khach_hang</field>
+            <field name="name">thong_tin_khach_hang_tree</field>
             <field name="model">thong_tin_khach_hang</field>
             <field name="arch" type="xml">
                 <tree>
@@ -30,6 +31,7 @@
                     <field name="so_dien_thoai"/>
                     <field name="email"/>
                     <field name="cong_ty"/>
+                    <field name="phan_loai"/>
                 </tree>
             </field>
         </record>
@@ -41,10 +43,12 @@
                     <field name="ten_khach_hang"/>
                     <field name="so_dien_thoai"/>
                     <field name="email"/>
+                    <field name="phan_loai"/>
                 </search>
             </field>
         </record>
 
+        <!-- Action -->
         <record id="action_thong_tin_khach_hang" model="ir.actions.act_window">
             <field name="name">Thông Tin Khách Hàng</field>
             <field name="res_model">thong_tin_khach_hang</field>

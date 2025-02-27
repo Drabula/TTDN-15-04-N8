@@ -17,3 +17,12 @@ class ThongTinKhachHang(models.Model):
         'don_hang_khach_hang', 'khach_hang_id', string="Đơn hàng"
     )
 
+    phan_loai = fields.Selection(
+        [
+            ('cao', 'Tiềm năng cao'),
+            ('trung_binh', 'Tiềm năng trung bình'),
+            ('thap', 'Tiềm năng thấp'),
+        ],
+        string="Phân loại khách hàng",
+        default='trung_binh'
+    )

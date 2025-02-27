@@ -20,8 +20,13 @@ class DonHangKhachHang(models.Model):
 
     khach_hang_id = fields.Many2one('thong_tin_khach_hang', string="Khách hàng", required=True)
 
-    @api.depends('tong_tien')
+  #  chi_tiet_don_hang_ids = fields.One2many('don_hang_chi_tiet',
+  #                                          'don_hang_id',
+  #                                           string="Chi tiết đơn hàng")
+
+    @api.depends('tong_tien',)
     def _compute_tong_tien(self):
         for record in self:
             record.tong_tien = 0
+
 
