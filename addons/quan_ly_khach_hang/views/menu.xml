@@ -21,6 +21,5 @@
         <!-- Dropdown Đơn hàng -->
         <menuitem id="menu_don_hang_group" name="Đơn hàng" parent="menu_root" sequence="3"/>
         <menuitem id="menu_chi_tiet_don_hang" name="Chi tiết đơn hàng" parent="menu_don_hang_group" action="action_order_detail"/>
-
     </data>
 </odoo>
