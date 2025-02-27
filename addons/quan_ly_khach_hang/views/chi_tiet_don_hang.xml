@@ -7,7 +7,7 @@
         <field name="arch" type="xml">
             <tree string="Chi tiết đơn hàng">
                 <field name="order_id"/>
-                <field name="product_name" string="Tên sản phẩm"/>
+                <field name="product_id" string="Tên sản phẩm"/>
                 <field name="quantity"/>
                 <field name="price_unit"/>
                 <field name="subtotal"/>
@@ -23,10 +23,10 @@
             <form string="Chi tiết đơn hàng">
                 <sheet>
                     <group>
-                        <field name="order_id"/>
-                        <field name="product_name" string="Tên sản phẩm"/>
-                        <field name="quantity"/>
-                        <field name="price_unit"/>
+                        <field name="order_id" required="1"/>
+                        <field name="product_id" string="Tên sản phẩm" required="1"/>
+                        <field name="price_unit" readonly="1"/>
+                        <field name="quantity" required="1"/>
                         <field name="subtotal" readonly="1"/>
                     </group>
                 </sheet>
