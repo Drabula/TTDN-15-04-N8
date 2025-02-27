@@ -4,6 +4,7 @@ from datetime import date
 class NhanVien(models.Model):
     _name = 'nhan_vien'
     _description = 'Bảng chứa thông tin nhân viên'
+    _rec_name = 'ho_va_ten'
 
     ma_dinh_danh = fields.Char("Mã định danh", required=True)
     ngay_sinh = fields.Date("Ngày sinh")
@@ -14,6 +15,7 @@ class NhanVien(models.Model):
     ten = fields.Char("Tên", required=True)
     ho_va_ten = fields.Char("Họ và tên", compute='_compute_ho_ten_dem', store=True)
     tuoi = fields.Integer("Tuổi", compute="_compute_tuoi", store=True)
+    nam_sinh = fields.Integer("Năm sinh")
 
     @api.depends("ho_ten_dem", "ten")
     def _compute_ho_ten_dem(self):

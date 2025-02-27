@@ -3,8 +3,9 @@ from odoo import models, fields, api
 class LichSuGiaoDich(models.Model):
     _name = 'lich_su_giao_dich'
     _description = 'Lịch sử giao dịch khách hàng'
+    _rec_name = 'ten_khach_hang'
 
-    ten_khach_hang = fields.Many2one('thong_tin_khach_hang',string='Mã chức vụ', required=True)
+    ten_khach_hang = fields.Many2one('thong_tin_khach_hang',string='Tên khách hàng', required=True)
 
     phuong_thuc_lien_lac = fields.Selection([
         ('call', 'Gọi điện'),
