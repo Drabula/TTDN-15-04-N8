@@ -13,6 +13,7 @@ class ThongTinKhachHang(models.Model):
     cong_ty = fields.Char("Công ty")
     chuc_vu = fields.Char("Chức vụ")
 
+
     don_hang_ids = fields.One2many('chi_tiet_don_hang', 'khach_hang_id', string="Đơn hàng")
 
     phan_loai = fields.Selection(
