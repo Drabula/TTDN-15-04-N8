@@ -1,5 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_don_hang_khach_hang,don_hang_khach_hang.don_hang_khach_hang,model_don_hang_khach_hang,base.group_user,1,1,1,1
 access_thong_tin_khach_hang,thong_tin_khach_hang.thong_tin_khach_hang,model_thong_tin_khach_hang,base.group_user,1,1,1,1
 access_chi_tiet_don_hang,chi_tiet_don_hang.chi_tiet_don_hang_hang,model_chi_tiet_don_hang,base.group_user,1,1,1,1
 access_ho_tro_khach_hang,ho_tro_khach_hang.ho_tro_khach_hang,model_ho_tro_khach_hang,base.group_user,1,1,1,1
