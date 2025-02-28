@@ -29,7 +29,6 @@
         'views/don_hang_khach_hang.xml',
         'views/chi_tiet_don_hang.xml',
         'views/thong_tin_khach_hang.xml',
-        'views/lich_su_giao_dich.xml',
         'views/ho_tro_khach_hang.xml',
         'views/chuc_vu.xml',
         'views/nhan_vien.xml',
