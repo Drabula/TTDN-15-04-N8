@@ -1,4 +1,7 @@
 from odoo import models, fields, api
+from datetime import timedelta
+
+from odoo.exceptions import ValidationError
 
 
 class HoTroKhachHang(models.Model):
@@ -6,6 +9,7 @@ class HoTroKhachHang(models.Model):
     _description = 'Hỗ trợ khách hàng'
     _rec_name = 'ten_khach_hang'
 
+    # Thông tin khách hàng
     ten_khach_hang = fields.Many2one(
         'thong_tin_khach_hang', string="Khách hàng", required=True
     )
@@ -17,10 +21,30 @@ class HoTroKhachHang(models.Model):
         ('direct', 'Gặp trực tiếp')
     ], string="Phương thức liên lạc", required=True)
 
-    ngay_ho_tro = fields.Datetime(string="Ngày hỗ trợ", default=fields.Datetime.now)
+    # Thời gian hỗ trợ
+    thoi_gian_bat_dau = fields.Datetime(string="Thời gian bắt đầu", required=True)
+    thoi_gian_ket_thuc = fields.Datetime(string="Thời gian kết thúc", required=True)
 
+    ngay_ho_tro = fields.Integer(
+        string="Số ngày hỗ trợ",
+        compute="_compute_ngay_ho_tro",
+        store=True
+    )
+
+    @api.depends('thoi_gian_bat_dau', 'thoi_gian_ket_thuc')
+    def _compute_ngay_ho_tro(self):
+        for record in self:
+            if record.thoi_gian_bat_dau and record.thoi_gian_ket_thuc:
+                delta = record.thoi_gian_ket_thuc - record.thoi_gian_bat_dau
+                record.ngay_ho_tro = delta.days
+            else:
+                record.ngay_ho_tro = 0  # Mặc định là 0 ngày nếu thiếu dữ liệu
+
+    # Yêu cầu & mô tả
+    yeu_cau_cua_khach = fields.Text(string="Yêu cầu của khách hàng")
     mo_ta_chi_tiet = fields.Text(string="Mô tả chi tiết")
 
+    # Trạng thái xử lý
     trang_thai = fields.Selection([
         ('pending', 'Đang chờ'),
         ('in_progress', 'Đang xử lý'),
@@ -30,3 +54,29 @@ class HoTroKhachHang(models.Model):
     nhan_vien_phu_trach = fields.Many2one(
         'nhan_vien', string="Nhân viên phụ trách", required=True
     )
+
+    # Phản hồi & đánh giá từ khách hàng
+    phan_hoi_khach_hang = fields.Text(string="Phản hồi của khách hàng")
+    diem_danh_gia = fields.Integer(string="Điểm đánh giá từ khách hàng", default=0)
+
+    # File đính kèm
+    file_dinh_kem = fields.Many2many(
+        'ir.attachment',
+        'ho_tro_khach_hang_attachment_rel',
+        'ho_tro_khach_hang_id',
+        'attachment_id',
+        string="File đính kèm"
+    )
+
+    # Ràng buộc dữ liệu: Điểm đánh giá phải từ 0 đến 5
+    _sql_constraints = [
+        ('check_diem_danh_gia', 'CHECK(diem_danh_gia BETWEEN 0 AND 5)',
+         'Điểm đánh giá phải từ 0 đến 5!')
+    ]
+
+    @api.constrains('trang_thai', 'thoi_gian_ket_thuc', 'diem_danh_gia')
+    def _check_thoi_gian_va_diem_danh_gia(self):
+        for record in self:
+            if record.trang_thai != 'resolved' and (record.thoi_gian_ket_thuc or record.diem_danh_gia):
+                raise ValidationError(
+                    "Chỉ được nhập thời gian kết thúc và điểm đánh giá khi trạng thái là 'Đã giải quyết'!")
