@@ -4,6 +4,7 @@ from odoo import models, fields, api
 class HoTroKhachHang(models.Model):
     _name = 'ho_tro_khach_hang'
     _description = 'Hỗ trợ khách hàng'
+    _rec_name = 'ten_khach_hang'
 
     ten_khach_hang = fields.Many2one(
         'thong_tin_khach_hang', string="Khách hàng", required=True
