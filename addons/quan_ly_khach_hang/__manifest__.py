@@ -31,10 +31,7 @@
         'views/chi_tiet_san_pham.xml',
         'views/thong_tin_khach_hang.xml',
         'views/ho_tro_khach_hang.xml',
-        'views/chuc_vu.xml',
-        'views/nhan_vien.xml',
-        'views/phong_ban.xml',
-        'views/lich_su.xml',
+        # 'views/ho_tro_khach_hang_ranking.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode

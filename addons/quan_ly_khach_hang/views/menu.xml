@@ -9,6 +9,7 @@
         <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_khach_hang_group" action="action_thong_tin_khach_hang"/>
         <menuitem id="menu_don_hang_khach_hang" name="Đơn hàng khách hàng" parent="menu_khach_hang_group" action="action_don_hang_khach_hang"/>
         <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_khach_hang_group" action="action_ho_tro_khach_hang"/>
+<!--        <menuitem id="menu_ho_tro_khach_hang_ranking" name="Xếp hạng" parent="menu_khach_hang_group" action="action_ho_tro_nhan_vien_ranking"/>-->
 
         <!-- Dropdown Nhân sự -->
 <!--        <menuitem id="menu_nhan_su_group" name="Nhân sự" parent="menu_root" sequence="2"/>-->
