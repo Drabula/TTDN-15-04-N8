@@ -34,6 +34,18 @@
                             <field name="ngay_tao" readonly="1"/>
                             <field name="ngay_cap_nhat" readonly="1"/>
                         </group>
+
+                        <group string="Danh sách hỗ trợ">
+                            <field name="ho_tro_ids" readonly="1">
+                                <tree>
+                                    <field name="nhan_vien_phu_trach" string="Nhân viên phụ trách" readonly="1"/>
+                                    <field name="phuong_thuc_lien_lac" string="Phương thức liên lạc" readonly="1"/>
+                                    <field name="thoi_gian_bat_dau" string="Thời gian bắt đầu" readonly="1"/>
+                                    <field name="thoi_gian_ket_thuc" string="Thời gian kết thúc" readonly="1"/>
+                                    <field name="trang_thai" string="Trạng thái" readonly="1"/>
+                                </tree>
+                            </field>
+                        </group>
                     </sheet>
                 </form>
             </field>

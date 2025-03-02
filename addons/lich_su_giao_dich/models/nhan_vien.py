@@ -4,6 +4,7 @@ from datetime import date
 class NhanVien(models.Model):
     _name = 'nhan_vien'
     _description = 'Bảng chứa thông tin nhân viên'
+    _rec_name = 'ho_va_ten'
 
     ma_dinh_danh = fields.Char("Mã định danh", required=True)
     ngay_sinh = fields.Date("Ngày sinh")

@@ -8,6 +8,7 @@
         <menuitem id="menu_khach_hang_group" name="Khách hàng" parent="menu_root" sequence="1"/>
         <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_khach_hang_group" action="action_thong_tin_khach_hang"/>
         <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_khach_hang_group" action="action_ho_tro_khach_hang"/>
+        <menuitem id="menu_thong_ke_ho_tro" name="Thống kê hỗ trợ" parent="menu_khach_hang_group" action="action_thong_ke_ho_tro_nhan_vien" />
 
         <!-- Dropdown Đơn hàng -->
         <menuitem id="menu_don_hang_group" name="Đơn hàng" parent="menu_root" sequence="3"/>

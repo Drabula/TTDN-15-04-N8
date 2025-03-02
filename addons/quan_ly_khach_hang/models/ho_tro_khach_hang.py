@@ -8,6 +8,7 @@ class HoTroKhachHang(models.Model):
     _name = 'ho_tro_khach_hang'
     _description = 'Hỗ trợ khách hàng'
     _rec_name = 'ten_khach_hang'
+    _inherit = 'ho_tro_khach_hang'
 
     # Thông tin khách hàng
     ten_khach_hang = fields.Many2one(
@@ -23,7 +24,7 @@ class HoTroKhachHang(models.Model):
 
     # Thời gian hỗ trợ
     thoi_gian_bat_dau = fields.Datetime(string="Thời gian bắt đầu", required=True)
-    thoi_gian_ket_thuc = fields.Datetime(string="Thời gian kết thúc", required=True)
+    thoi_gian_ket_thuc = fields.Datetime(string="Thời gian kết thúc")
 
     ngay_ho_tro = fields.Integer(
         string="Số ngày hỗ trợ",
@@ -36,9 +37,9 @@ class HoTroKhachHang(models.Model):
         for record in self:
             if record.thoi_gian_bat_dau and record.thoi_gian_ket_thuc:
                 delta = record.thoi_gian_ket_thuc - record.thoi_gian_bat_dau
-                record.ngay_ho_tro = delta.days
+                record.ngay_ho_tro = delta.total_seconds() / 86400.0  # Chia cho số giây trong 1 ngày
             else:
-                record.ngay_ho_tro = 0  # Mặc định là 0 ngày nếu thiếu dữ liệu
+                record.ngay_ho_tro = 0
 
     # Yêu cầu & mô tả
     yeu_cau_cua_khach = fields.Text(string="Yêu cầu của khách hàng")
@@ -52,7 +53,9 @@ class HoTroKhachHang(models.Model):
     ], string="Trạng thái", default='pending')
 
     nhan_vien_phu_trach = fields.Many2one(
-        'nhan_vien', string="Nhân viên phụ trách", required=True
+        'nhan_vien',  # Model liên kết
+        string="Nhân viên phụ trách",
+        required=True
     )
 
     # Phản hồi & đánh giá từ khách hàng
@@ -80,3 +83,23 @@ class HoTroKhachHang(models.Model):
             if record.trang_thai != 'resolved' and (record.thoi_gian_ket_thuc or record.diem_danh_gia):
                 raise ValidationError(
                     "Chỉ được nhập thời gian kết thúc và điểm đánh giá khi trạng thái là 'Đã giải quyết'!")
+
+    @api.model
+    def create(self, vals):
+        record = super(HoTroKhachHang, self).create(vals)
+        # Cập nhật thống kê sau khi tạo bản ghi mới
+        self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke()
+        return record
+
+    def write(self, vals):
+        result = super(HoTroKhachHang, self).write(vals)
+        if 'nhan_vien_phu_trach' in vals:
+            self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke_specific(self)
+        return result
+
+    def unlink(self):
+        nhan_vien_ids = self.mapped('nhan_vien_phu_trach').ids
+        result = super(HoTroKhachHang, self).unlink()
+        if nhan_vien_ids:
+            self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke_specific(nhan_vien_ids)
+        return result
