@@ -52,6 +52,8 @@ class ThongTinKhachHang(models.Model):
         ('kem', 'Kém')
     ], string="Mức độ hài lòng")
 
+    tong_tien_chi_tieu = fields.Float("Tổng tiền đã chi tiêu", compute="_compute_tong_tien_chi_tieu", store=True)
+
     ghi_chu = fields.Text("Ghi chú")
     # nguoi_phu_trach = fields.Many2one('res.users', string="Người phụ trách")
 
@@ -59,3 +61,8 @@ class ThongTinKhachHang(models.Model):
     def _compute_so_lan_mua_hang(self):
         for record in self:
             record.so_lan_mua_hang = len(record.don_hang_ids)
+
+    @api.depends('don_hang_ids.subtotal')
+    def _compute_tong_tien_chi_tieu(self):
+        for record in self:
+            record.tong_tien_chi_tieu = sum(record.don_hang_ids.mapped('subtotal'))
