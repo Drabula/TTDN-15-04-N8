@@ -2,41 +2,38 @@
 <odoo>
     <data>
         <record id="view_thong_tin_khach_hang_form" model="ir.ui.view">
-    <field name="name">thong_tin_khach_hang_form</field>
-    <field name="model">thong_tin_khach_hang</field>
-    <field name="arch" type="xml">
-        <form>
-            <sheet>
-                <div class="oe_read_only" style="font-size:25px">Thông Tin Khách Hàng</div>
+            <field name="name">thong_tin_khach_hang_form</field>
+            <field name="model">thong_tin_khach_hang</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_read_only" style="font-size:25px">Thông Tin Khách Hàng</div>
 
-                <group col="4" string="Thông tin chung">
-                    <field name="ten_khach_hang"/>
-                    <field name="dia_chi"/>
-                    <field name="so_dien_thoai"/>
-                    <field name="email"/>
-                    <field name="cong_ty"/>
-                    <field name="chuc_vu"/>
-                    <field name="phan_loai"/>
-                    <field name="ngay_sinh"/>
-                    <field name="gioi_tinh"/>
-                    <field name="facebook"/>
-                    <field name="zalo"/>
-                    <field name="website"/>
-                </group>
+                        <group col="4" string="Thông tin chung">
+                            <field name="ten_khach_hang"/>
+                            <field name="dia_chi"/>
+                            <field name="so_dien_thoai"/>
+                            <field name="email"/>
+                            <field name="cong_ty"/>
+                            <field name="chuc_vu"/>
+                            <field name="phan_loai"/>
+                            <field name="ngay_sinh"/>
+                            <field name="gioi_tinh"/>
+                            <field name="facebook"/>
+                            <field name="zalo"/>
+                            <field name="website"/>
+                        </group>
 
-                <group col="4" string="Trạng thái">
-                    <field name="trang_thai"/>
-                    <field name="muc_do_hai_long"/>
-                </group>
+                        <group col="4" string="Trạng thái">
+                            <field name="trang_thai"/>
+                            <field name="muc_do_hai_long"/>
+                        </group>
 
-                <group string="Lịch sử giao dịch">
-                    <div class="o_form_label" style="margin-bottom: 8px;">Danh sách đơn hàng</div>
-                    <group>
-                        <field name="tong_tien_chi_tieu" readonly="1"/>
-                        <notebook>
-                            <page>
-                                <field name="don_hang_ids">
-                                    <tree>
+                        <group string="Lịch sử giao dịch">
+                            <group>
+                                <field name="tong_tien_chi_tieu" readonly="1"/>
+                                <field name="don_hang_ids" mode="tree,form" readonly="1">
+                                    <tree editable="bottom">
                                         <field name="order_id"/>
                                         <field name="ngay_dat_hang"/>
                                         <field name="product_id"/>
@@ -46,10 +43,9 @@
                                         <field name="trang_thai"/>
                                     </tree>
                                 </field>
-                            </page>
-                        </notebook>
-                    </group>
-                </group>
+                            </group>
+                        </group>
+
                         <group col="4" string="Khác">
                             <field name="ghi_chu"/>
                             <field name="ngay_tao" readonly="1"/>
