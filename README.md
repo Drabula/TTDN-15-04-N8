@@ -77,6 +77,24 @@ python3 odoo-bin.py -c odoo.conf -u all
 ```
 Sau khi chạy xong, truy cập [http://localhost:8069/](http://localhost:8069/) để đăng nhập vào hệ thống.
 
+## 8. Hình ảnh minh họa 📸
+
+### **Trang quản lý khách hàng**
+
+![img.png](img.png)
+trang quản lý thông tin khách hàng
+![img_1.png](img_1.png)
+trang quản lý hỗ trợ khách hàng
+![img_2.png](img_2.png)
+trang thống kê hỗ trợ khách hàng
+![img_3.png](img_3.png)
+trang xếp hạng khách hàng
+![img_4.png](img_4.png)
+trang quản lý email và gửi
+![img_5.png](img_5.png)
+trang chi tiết đơn hàng
+![img_6.png](img_6.png)
+trang chi tiết sản phẩm
+
 ---
 **Hoàn tất cài đặt!** 🚀
-
