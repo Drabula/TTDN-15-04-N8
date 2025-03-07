@@ -16,7 +16,7 @@
                             <field name="email"/>
                             <field name="cong_ty"/>
                             <field name="chuc_vu"/>
-                            <field name="phan_loai"/>
+                            <field name="phan_loai" readonly="1"/>
                             <field name="ngay_sinh"/>
                             <field name="gioi_tinh"/>
                             <field name="facebook"/>
@@ -78,7 +78,7 @@
                     <field name="so_dien_thoai"/>
                     <field name="email"/>
                     <field name="cong_ty"/>
-                    <field name="phan_loai"/>
+                    <field name="phan_loai" readonly="1"/>
                     <field name="trang_thai"/>
                     <field name="so_lan_mua_hang"/>
                     <field name="ngay_tao"/>

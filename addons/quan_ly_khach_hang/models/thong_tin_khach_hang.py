@@ -74,7 +74,16 @@ class ThongTinKhachHang(models.Model):
     @api.depends('don_hang_ids.subtotal')
     def _compute_tong_tien_chi_tieu(self):
         for record in self:
+            # Tính tổng tiền chi tiêu (kiểu float)
             record.tong_tien_chi_tieu = sum(record.don_hang_ids.mapped('subtotal'))
+
+            # Phân loại khách hàng dựa vào tổng tiền (tự động cập nhật)
+            if record.tong_tien_chi_tieu >= 50000000.0:  # >= 50 triệu VND
+                record.phan_loai = 'cao'
+            elif record.tong_tien_chi_tieu >= 20000000.0:  # 20 - 50 triệu VND
+                record.phan_loai = 'trung_binh'
+            else:  # < 20 triệu VND
+                record.phan_loai = 'thap'
 
     @api.depends('ho_tro_ids')
     def _compute_so_lan_ho_tro(self):
@@ -97,3 +106,25 @@ class ThongTinKhachHang(models.Model):
                     record.muc_do_hai_long = 'kem'
             else:
                 record.muc_do_hai_long = False
+
+    @api.model
+    def create(self, vals):
+        # Tạo bản ghi khách hàng
+        record = super(ThongTinKhachHang, self).create(vals)
+        # Tạo bản ghi xếp hạng
+        self.env['bang_xep_hang_khach_hang'].create({
+            'khach_hang_id': record.id,
+        })
+        return record
+
+    def write(self, vals):
+        # Cập nhật bản ghi khách hàng
+        result = super(ThongTinKhachHang, self).write(vals)
+        # Đảm bảo bản ghi xếp hạng tồn tại
+        for record in self:
+            bang_xep_hang = self.env['bang_xep_hang_khach_hang'].search([('khach_hang_id', '=', record.id)])
+            if not bang_xep_hang:
+                self.env['bang_xep_hang_khach_hang'].create({
+                    'khach_hang_id': record.id,
+                })
+        return result

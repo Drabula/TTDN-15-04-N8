@@ -8,7 +8,6 @@ class HoTroKhachHang(models.Model):
     _name = 'ho_tro_khach_hang'
     _description = 'Hỗ trợ khách hàng'
     _rec_name = 'ten_khach_hang'
-    _inherit = 'ho_tro_khach_hang'
 
     # Thông tin khách hàng
     ten_khach_hang = fields.Many2one(
@@ -94,12 +93,12 @@ class HoTroKhachHang(models.Model):
     def write(self, vals):
         result = super(HoTroKhachHang, self).write(vals)
         if 'nhan_vien_phu_trach' in vals:
-            self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke_specific(self)
+            self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke(self)
         return result
 
     def unlink(self):
         nhan_vien_ids = self.mapped('nhan_vien_phu_trach').ids
         result = super(HoTroKhachHang, self).unlink()
         if nhan_vien_ids:
-            self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke_specific(nhan_vien_ids)
+            self.env['thong_ke_ho_tro_nhan_vien'].update_thong_ke(nhan_vien_ids)
         return result

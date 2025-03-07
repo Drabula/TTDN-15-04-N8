@@ -4,16 +4,16 @@
         <!-- Menu chính -->
         <menuitem id="menu_root" name="QLKH" sequence="0"/>
 
-        <!-- Dropdown Khách hàng -->
-        <menuitem id="menu_khach_hang_group" name="Khách hàng" parent="menu_root" sequence="1"/>
-        <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_khach_hang_group" action="action_thong_tin_khach_hang"/>
-        <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_khach_hang_group" action="action_ho_tro_khach_hang"/>
-        <menuitem id="menu_thong_ke_ho_tro" name="Thống kê hỗ trợ" parent="menu_khach_hang_group" action="action_thong_ke_ho_tro_nhan_vien" />
+        <!-- Mục Khách hàng -->
+        <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_root" action="action_thong_tin_khach_hang" sequence="1"/>
+        <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_root" action="action_ho_tro_khach_hang"/>
+        <menuitem id="menu_thong_ke_ho_tro" name="Thống kê hỗ trợ" parent="menu_root" action="action_thong_ke_ho_tro_nhan_vien"/>
+        <menuitem id="menu_bang_xep_hang" name="Bảng xếp hạng" parent="menu_root" action="action_bang_xep_hang_khach_hang"/>
+        <menuitem id="menu_email_sender_root" name="Hộp thư" sequence="10"/>
+        <menuitem id="menu_email_sender" name="Gửi và Quản lý Email" parent="menu_email_sender_root" action="action_email_sender"/>
 
-        <!-- Dropdown Đơn hàng -->
-        <menuitem id="menu_don_hang_group" name="Đơn hàng" parent="menu_root" sequence="3"/>
-        <menuitem id="menu_chi_tiet_don_hang" name="Chi tiết đơn hàng" parent="menu_don_hang_group" action="action_order_detail"/>
-        <menuitem id="menu_chi_tiet_san_pham" name="Chi tiết sản phẩm" parent="menu_don_hang_group" action="action_product_detail"/>
-
+        <!-- Mục Đơn hàng -->
+        <menuitem id="menu_chi_tiet_don_hang" name="Chi tiết đơn hàng" parent="menu_root" action="action_order_detail" sequence="2"/>
+        <menuitem id="menu_chi_tiet_san_pham" name="Chi tiết sản phẩm" parent="menu_root" action="action_product_detail"/>
     </data>
 </odoo>
