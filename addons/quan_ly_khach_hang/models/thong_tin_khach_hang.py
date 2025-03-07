@@ -1,4 +1,5 @@
 from odoo import models, fields, api
+from datetime import date, timedelta
 
 
 class ThongTinKhachHang(models.Model):
@@ -48,7 +49,7 @@ class ThongTinKhachHang(models.Model):
     trang_thai = fields.Selection([
         ('moi', 'Mới'),
         ('cu', 'Cũ'),
-    ], string="Trạng thái khách hàng", default='moi')
+    ], string="Trạng thái khách hàng", compute="_compute_trang_thai", store=True)
 
     muc_do_hai_long = fields.Selection(
         [
@@ -106,6 +107,21 @@ class ThongTinKhachHang(models.Model):
                     record.muc_do_hai_long = 'kem'
             else:
                 record.muc_do_hai_long = False
+
+    @api.depends('don_hang_ids.ngay_dat_hang')
+    def _compute_trang_thai(self):
+        today = date.today()
+        for record in self:
+            if record.don_hang_ids:
+                # Lấy ngày đặt hàng gần nhất
+                ngay_mua_gan_nhat = max(record.don_hang_ids.mapped('ngay_dat_hang'))
+                # Nếu đơn hàng gần nhất cách đây <= 6 tháng, thì là khách hàng cũ
+                if (today - ngay_mua_gan_nhat).days <= 180:
+                    record.trang_thai = 'cu'
+                else:
+                    record.trang_thai = 'moi'
+            else:
+                record.trang_thai = 'moi'  # Mặc định nếu chưa có đơn hàng
 
     @api.model
     def create(self, vals):
