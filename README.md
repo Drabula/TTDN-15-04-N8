@@ -79,22 +79,34 @@ Sau khi chạy xong, truy cập [http://localhost:8069/](http://localhost:8069/)
 
 ## 8. Hình ảnh minh họa 📸
 
-### **Trang quản lý khách hàng**
+### **1. Trang quản lý khách hàng**
+![img_7.png](img_7.png)
+> Giao diện quản lý thông tin khách hàng
 
-![img.png](img.png)
-trang quản lý thông tin khách hàng
-![img_1.png](img_1.png)
-trang quản lý hỗ trợ khách hàng
-![img_2.png](img_2.png)
-trang thống kê hỗ trợ khách hàng
+### **2. Trang hỗ trợ khách hàng**
+![img_8.png](img_8.png)
+> Quản lý yêu cầu và phản hồi từ khách hàng
+
+### **3. Trang thống kê hỗ trợ khách hàng**
+![img_9.png](img_9.png)
+> Biểu đồ thống kê hiệu suất hỗ trợ khách hàng của nhân viên
+
+### **4. Trang xếp hạng khách hàng**
 ![img_3.png](img_3.png)
-trang xếp hạng khách hàng
+> Bảng xếp hạng khách hàng theo mức độ mua hàng
+
+### **5. Trang quản lý email và gửi thông báo**
 ![img_4.png](img_4.png)
-trang quản lý email và gửi
+> Giao diện quản lý email và gửi thông báo đến khách hàng
+
+### **6. Trang chi tiết đơn hàng**
 ![img_5.png](img_5.png)
-trang chi tiết đơn hàng
+> Hiển thị thông tin chi tiết đơn hàng của khách hàng
+
+### **7. Trang chi tiết sản phẩm**
 ![img_6.png](img_6.png)
-trang chi tiết sản phẩm
+> Thông tin sản phẩm chi tiết dành cho khách hàng
 
 ---
 **Hoàn tất cài đặt!** 🚀
+
