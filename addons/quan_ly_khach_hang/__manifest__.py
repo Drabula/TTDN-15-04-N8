@@ -32,6 +32,7 @@
         'views/ho_tro_khach_hang.xml',
         'views/thong_ke_ho_tro_nhan_vien.xml',
         'views/thong_ke_mua_hang_khach_hang.xml',
+        'views/phan_tich_khach_hang_theo_mien.xml',
         'views/email_sender.xml',
         'views/menu.xml',
     ],

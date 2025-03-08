@@ -14,6 +14,15 @@ class ThongTinKhachHang(models.Model):
     cong_ty = fields.Char("Công ty")
     chuc_vu = fields.Char("Chức vụ")
 
+    vung_mien = fields.Selection(
+        [
+            ('bac', 'Miền Bắc'),
+            ('trung', 'Miền Trung'),
+            ('nam', 'Miền Nam'),
+        ],
+        string="Vùng miền",
+        required=True  # Bắt buộc phải chọn
+    )
 
     don_hang_ids = fields.One2many('chi_tiet_don_hang', 'khach_hang_id', string="Đơn hàng")
     ho_tro_ids = fields.One2many(
@@ -131,6 +140,7 @@ class ThongTinKhachHang(models.Model):
         self.env['bang_xep_hang_khach_hang'].create({
             'khach_hang_id': record.id,
         })
+        self.env['phan_tich_khach_hang_theo_mien'].cap_nhat_du_lieu_phan_tich()
         return record
 
     def write(self, vals):
@@ -143,4 +153,6 @@ class ThongTinKhachHang(models.Model):
                 self.env['bang_xep_hang_khach_hang'].create({
                     'khach_hang_id': record.id,
                 })
+            self.env['phan_tich_khach_hang_theo_mien'].cap_nhat_du_lieu_phan_tich()
         return result
+

@@ -12,6 +12,7 @@
                         <group col="4" string="Thông tin chung">
                             <field name="ten_khach_hang"/>
                             <field name="dia_chi"/>
+                            <field name="vung_mien"/>
                             <field name="so_dien_thoai"/>
                             <field name="email"/>
                             <field name="cong_ty"/>

@@ -5,7 +5,7 @@
         <field name="name">bang.xep.hang.khach.hang.tree</field>
         <field name="model">bang_xep_hang_khach_hang</field>
         <field name="arch" type="xml">
-            <tree string="Bảng xếp hạng khách hàng">
+            <tree string="Bảng xếp hạng khách hàng" create="0" edit="0">
                 <field name="xep_hang" string="Hạng"/>
                 <field name="khach_hang_id" string="Khách hàng"/>
                 <field name="tong_tien_chi_tieu" string="Tổng chi tiêu" widget="monetary"/>

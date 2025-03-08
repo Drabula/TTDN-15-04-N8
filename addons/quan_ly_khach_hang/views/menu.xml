@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <!-- Menu chính -->
-        <menuitem id="menu_root" name="QLKH" sequence="0"/>
+        <!-- Menu Gốc -->
+        <menuitem id="menu_root" name="Quản Lý Khách Hàng" sequence="0"/>
 
-        <!-- Mục Khách hàng -->
-        <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_root" action="action_thong_tin_khach_hang" sequence="1"/>
-        <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_root" action="action_ho_tro_khach_hang"/>
-        <menuitem id="menu_thong_ke_ho_tro" name="Thống kê hỗ trợ" parent="menu_root" action="action_thong_ke_ho_tro_nhan_vien"/>
-        <menuitem id="menu_bang_xep_hang" name="Bảng xếp hạng" parent="menu_root" action="action_bang_xep_hang_khach_hang"/>
-        <menuitem id="menu_email_sender_root" name="Hộp thư" sequence="10"/>
-        <menuitem id="menu_email_sender" name="Gửi và Quản lý Email" parent="menu_email_sender_root" action="action_email_sender"/>
+        <!-- Nhóm Quản Lý Khách Hàng -->
+        <menuitem id="menu_group_khach_hang" name="Quản lý khách hàng" parent="menu_root" sequence="1"/>
 
-        <!-- Mục Đơn hàng -->
-        <menuitem id="menu_chi_tiet_don_hang" name="Chi tiết đơn hàng" parent="menu_root" action="action_order_detail" sequence="2"/>
-        <menuitem id="menu_chi_tiet_san_pham" name="Chi tiết sản phẩm" parent="menu_root" action="action_product_detail"/>
+        <menuitem id="menu_thong_tin_khach_hang" name="Thông tin khách hàng" parent="menu_group_khach_hang" action="action_thong_tin_khach_hang" sequence="2"/>
+        <menuitem id="menu_ho_tro_khach_hang" name="Hỗ trợ khách hàng" parent="menu_group_khach_hang" action="action_ho_tro_khach_hang" sequence="3"/>
+        <menuitem id="menu_thong_ke_ho_tro" name="Thống kê hỗ trợ" parent="menu_group_khach_hang" action="action_thong_ke_ho_tro_nhan_vien" sequence="4"/>
+        <menuitem id="menu_bang_xep_hang" name="Bảng xếp hạng khách VIP" parent="menu_group_khach_hang" action="action_bang_xep_hang_khach_hang" sequence="5"/>
+        <menuitem id="menu_email_sender" name="Gửi và Quản lý Email" parent="menu_group_khach_hang" action="action_email_sender" sequence="6"/>
+        <menuitem id="menu_phan_tich_khach_hang" name="Phân tích khách hàng theo miền" parent="menu_group_khach_hang" action="action_phan_tich_khach_hang_theo_mien" sequence="7"/>
+
+        <!-- Nhóm Quản Lý Đơn Hàng -->
+        <menuitem id="menu_group_don_hang" name="Quản lý đơn hàng" parent="menu_root" sequence="8"/>
+
+        <menuitem id="menu_chi_tiet_don_hang" name="Chi tiết đơn hàng" parent="menu_group_don_hang" action="action_order_detail" sequence="9"/>
+        <menuitem id="menu_chi_tiet_san_pham" name="Chi tiết sản phẩm" parent="menu_group_don_hang" action="action_product_detail" sequence="10"/>
     </data>
 </odoo>
