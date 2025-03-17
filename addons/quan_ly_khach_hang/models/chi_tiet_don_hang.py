@@ -7,7 +7,9 @@ class ChiTietDonHang(models.Model):
 
     order_id = fields.Char(string='Đơn hàng', required=True, copy=False, readonly=True,
                            default=lambda self: self.env['ir.sequence'].next_by_code('chi_tiet_don_hang'))
+
     ngay_dat_hang = fields.Date("Ngày đặt hàng", default=fields.Date.today)
+
     product_id = fields.Many2one('chi_tiet_san_pham', string='Tên sản phẩm', required=True)
     
     price_unit = fields.Float(string='Đơn giá', related='product_id.price_unit', store=True, readonly=True)
