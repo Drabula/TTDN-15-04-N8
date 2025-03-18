@@ -15,9 +15,12 @@ class PhanTichKhachHang(models.Model):
     @api.depends('vung_mien')
     def _compute_tong_doanh_thu(self):
         for record in self:
-            record.tong_doanh_thu = sum(
-                self.env['thong_tin_khach_hang'].search([('vung_mien', '=', record.vung_mien)]).mapped('tong_tien_chi_tieu')
+            khach_hang_data = self.env['thong_tin_khach_hang'].read_group(
+                [('vung_mien', '=', record.vung_mien)],
+                ['tong_tien_chi_tieu:sum'],
+                []
             )
+            record.tong_doanh_thu = khach_hang_data[0]['tong_tien_chi_tieu'] if khach_hang_data else 0
 
     @api.depends('vung_mien')
     def _compute_so_luong_khach(self):
@@ -27,9 +30,8 @@ class PhanTichKhachHang(models.Model):
     def cap_nhat_du_lieu_phan_tich(self):
         """ Cập nhật dữ liệu khi khách hàng thay đổi """
         for vung in ['bac', 'trung', 'nam']:
-            phan_tich = self.env['phan_tich_khach_hang_theo_mien'].search([('vung_mien', '=', vung)])
+            phan_tich = self.env['phan_tich_khach_hang_theo_mien'].search([('vung_mien', '=', vung)], limit=1)
             if not phan_tich:
                 phan_tich = self.create({'vung_mien': vung})
             phan_tich._compute_so_luong_khach()
             phan_tich._compute_tong_doanh_thu()
-

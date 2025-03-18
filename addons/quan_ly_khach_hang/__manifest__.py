@@ -34,10 +34,18 @@
         'views/thong_ke_mua_hang_khach_hang.xml',
         'views/phan_tich_khach_hang_theo_mien.xml',
         'views/email_sender.xml',
+        'views/dashboard.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
+    'assets': {
+            'web.assets_backend': [
+                'addons/quan_ly_khach_hang/static/src/js/dashboard_chart.js',
+                'https://cdn.jsdelivr.net/npm/chart.js',
+            ],
+        },
+
 }

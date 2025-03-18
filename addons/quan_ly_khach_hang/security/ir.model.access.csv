@@ -7,3 +7,4 @@ access_thong_ke_ho_tro_nhan_vien,thong_ke_ho_tro_nhan_vien,model_thong_ke_ho_tro
 access_bang_xep_hang_khach_hang,bang_xep_hang_khach_hang.bang_xep_hang_khach_hang,model_bang_xep_hang_khach_hang,base.group_user,1,1,1,1
 access_email_sender,email_sender.email_sender,model_email_sender,base.group_user,1,1,1,1
 access_phan_tich_khach_hang_theo_mien,phan_tich_khach_hang_theo_mien.phan_tich_khach_hang_theo_mien,model_phan_tich_khach_hang_theo_mien,base.group_user,1,1,1,1
+access_dashboard,dashboard.dashboard,model_dashboard,base.group_user,1,1,1,1

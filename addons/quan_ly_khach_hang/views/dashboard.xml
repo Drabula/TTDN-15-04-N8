@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_dashboard_form" model="ir.ui.view">
+        <field name="name">dashboard.form</field>
+        <field name="model">dashboard</field>
+        <field name="arch" type="xml">
+            <form string="Dashboard Tổng Quan" create="0" delete="0" edit="0">
+                <sheet>
+                    <!-- Phần thông tin tổng quan -->
+                    <group>
+                        <group>
+                            <field name="tong_so_khach"/>
+                            <field name="tong_doanh_thu"/>
+                        </group>
+                        <group>
+                            <field name="tong_so_lan_ho_tro"/>
+                            <field name="nhan_vien_ho_tro_nhieu_nhat"/>
+                        </group>
+                    </group>
+
+                    <separator string="Thống kê Chi Tiêu và Khách Hàng" full="1"/>
+
+                    <!-- Phần biểu đồ -->
+                    <notebook>
+                        <page string="Thống kê Khách Hàng">
+                            <div id="customer_chart_container" class="oe_center">
+                                <canvas id="customerChart"></canvas>
+                            </div>
+                        </page>
+                        <page string="Thống kê Chi Tiêu">
+                            <div id="spending_chart_container" class="oe_center">
+                                <canvas id="spendingChart"></canvas>
+                            </div>
+                        </page>
+                    </notebook>
+
+                    <separator string="Cập nhật Dữ liệu" full="1"/>
+
+                    <!-- Footer với nút cập nhật -->
+                    <group>
+                        <button name="cap_nhat_dashboard" string="Cập nhật Dữ liệu" type="object" class="oe_highlight"/>
+                    </group>
+
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_dashboard" model="ir.actions.act_window">
+        <field name="name">Dashboard</field>
+        <field name="res_model">dashboard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_dashboard_form"/>
+    </record>
+</odoo>
