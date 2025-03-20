@@ -16,19 +16,21 @@
         <menuitem name="Quản lý phòng ban" 
             id="menu_phong_ban" 
             parent="menu_root" 
-            sequence="2"
+            sequence="1"
             action="action_phong_ban"
         />
-         <menuitem name="Quản lý chức vụ" 
+
+        <menuitem name="Quản lý chức vụ" 
             id="menu_chuc_vu" 
             parent="menu_root" 
-            sequence="3"
+            sequence="1"
             action="action_chuc_vu"
         />
-        <menuitem name="Lịch sử công tác"
+
+        <menuitem name="Quản lý lịch sử công tác" 
             id="menu_lich_su_cong_tac" 
             parent="menu_root" 
-            sequence="4"
+            sequence="1"
             action="action_lich_su_cong_tac"
         />
     </data>
