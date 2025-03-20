@@ -29,9 +29,25 @@ class PhanTichKhachHang(models.Model):
 
     def cap_nhat_du_lieu_phan_tich(self):
         """ Cập nhật dữ liệu khi khách hàng thay đổi """
+        dashboard = self.env['dashboard'].search([], limit=1)
+
+        # Nếu chưa có, tạo một bản ghi dashboard mới
+        if not dashboard:
+            dashboard = self.env['dashboard'].create({})
+
         for vung in ['bac', 'trung', 'nam']:
             phan_tich = self.env['phan_tich_khach_hang_theo_mien'].search([('vung_mien', '=', vung)], limit=1)
+
             if not phan_tich:
-                phan_tich = self.create({'vung_mien': vung})
+                phan_tich = self.env['phan_tich_khach_hang_theo_mien'].create({'vung_mien': vung})
+
+            # Tính toán lại dữ liệu
             phan_tich._compute_so_luong_khach()
             phan_tich._compute_tong_doanh_thu()
+
+            # Cập nhật giá trị vào dashboard
+            dashboard.write({
+                f"so_luong_khach_{vung}": phan_tich.so_luong_khach,
+                f"tong_chi_tieu_{vung}": phan_tich.tong_doanh_thu
+            })
+

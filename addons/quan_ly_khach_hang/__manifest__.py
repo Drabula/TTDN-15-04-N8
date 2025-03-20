@@ -44,6 +44,9 @@
     'assets': {
             'web.assets_backend': [
                 'addons/quan_ly_khach_hang/static/src/js/dashboard_chart.js',
+                'addons/quan_ly_khach_hang/static/src/js/dashboard_rank.js',
+                'addons/quan_ly_khach_hang/static/src/js/dashboard_rank_support.js',
+                'addons/quan_ly_khach_hang/static/src/css/dashboard.css',
                 'https://cdn.jsdelivr.net/npm/chart.js',
             ],
         },

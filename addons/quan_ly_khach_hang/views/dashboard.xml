@@ -6,40 +6,83 @@
         <field name="arch" type="xml">
             <form string="Dashboard Tổng Quan" create="0" delete="0" edit="0">
                 <sheet>
-                    <!-- Phần thông tin tổng quan -->
+                    <!-- Phần số liệu tổng quan -->
                     <group>
-                        <group>
-                            <field name="tong_so_khach"/>
-                            <field name="tong_doanh_thu"/>
-                        </group>
-                        <group>
-                            <field name="tong_so_lan_ho_tro"/>
-                            <field name="nhan_vien_ho_tro_nhieu_nhat"/>
-                        </group>
+                        <div class="oe_title">
+                            <h1 style="text-align:center;">Dashboard Tổng Quan</h1>
+                        </div>
+
                     </group>
 
-                    <separator string="Thống kê Chi Tiêu và Khách Hàng" full="1"/>
+                    <separator string="Biểu đồ Thống Kê" full="1"/>
 
-                    <!-- Phần biểu đồ -->
-                    <notebook>
-                        <page string="Thống kê Khách Hàng">
-                            <div id="customer_chart_container" class="oe_center">
-                                <canvas id="customerChart"></canvas>
+                    <!-- Biểu đồ Thống Kê -->
+                    <group>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="width: 48%; max-width: 600px; height: 400px;" class="oe_box">
+                                <h3 style="text-align:center;">Thống kê Khách Hàng</h3>
+                                <canvas id="customerChart" style="max-height: 350px;"></canvas>
                             </div>
-                        </page>
-                        <page string="Thống kê Chi Tiêu">
-                            <div id="spending_chart_container" class="oe_center">
-                                <canvas id="spendingChart"></canvas>
+                            <div style="width: 48%; max-width: 600px; height: 400px;" class="oe_box">
+                                <h3 style="text-align:center;">Thống kê Chi Tiêu</h3>
+                                <canvas id="spendingChart" style="max-height: 350px;"></canvas>
                             </div>
-                        </page>
-                    </notebook>
+                        </div>
+                    </group>
+
+                    <separator string="Xếp Hạng Khách Hàng" full="1"/>
+
+                    <!-- Biểu đồ xếp hạng khách hàng -->
+                    <div class="oe_box">
+                        <h2 style="text-align:center;">Biểu đồ xếp hạng khách hàng</h2>
+                        <canvas id="rankingChart" width="400" height="200" style="max-height: 350px;"></canvas>
+                    </div>
+
+                    <!-- Bảng xếp hạng khách hàng -->
+                    <div class="oe_box">
+                        <h2 style="text-align:center;">Bảng xếp hạng khách hàng</h2>
+                        <table id="rankingTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Hạng</th>
+                                    <th>Khách Hàng</th>
+                                    <th>Tổng Tiền Chi Tiêu</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                    <separator string="Thống Kê Hỗ Trợ Nhân Viên" full="1"/>
+
+                    <!-- Biểu đồ thống kê hỗ trợ nhân viên -->
+                    <div class="oe_box">
+                        <h2 style="text-align:center;">Biểu đồ Thống Kê Hỗ Trợ Nhân Viên</h2>
+                        <canvas id="supportChart" width="400" height="200" style="max-height: 350px;"></canvas>
+                    </div>
+
+                    <!-- Bảng thống kê hỗ trợ -->
+                    <div class="oe_box">
+                        <h2 style="text-align:center;">Bảng Thống Kê Hỗ Trợ Nhân Viên</h2>
+                        <table id="supportStatsTable" class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Nhân Viên</th>
+                                    <th>Số Lần Hỗ Trợ</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
 
                     <separator string="Cập nhật Dữ liệu" full="1"/>
 
                     <!-- Footer với nút cập nhật -->
-                    <group>
-                        <button name="cap_nhat_dashboard" string="Cập nhật Dữ liệu" type="object" class="oe_highlight"/>
-                    </group>
+<!--                    <group>-->
+<!--                        <div style="text-align: center; margin-top: 10px;">-->
+<!--                            <button name="_compute_dashboard" string="Cập nhật Dữ liệu" type="object" class="oe_highlight"/>-->
+<!--                        </div>-->
+<!--                    </group>-->
 
                 </sheet>
             </form>
@@ -51,5 +94,9 @@
         <field name="res_model">dashboard</field>
         <field name="view_mode">form</field>
         <field name="view_id" ref="view_dashboard_form"/>
+        <field name="target">current</field>  <!-- Đảm bảo mở lại trang hiện tại -->
     </record>
+
+
+
 </odoo>
